@@ -14,7 +14,7 @@
         <h2 class="text-center"> Todo List &nbsp;&#9996;</h2>
         <div class="row">
             <div class="col-lg-5 col-sm-12 backgraund py-5 shadow">
-                <h3 class="text-center">Students Detail Form</h3>
+                <h3 class="text-center">Students Detail Form <span id="timeLogout"></span></h3>
                 <div class="form-box">
                     <label for="lastname">Roll No.</label>
                     <input type="number" id="Rollno" name="rollno" placeholder="Roll No."/><br /><br />
@@ -38,6 +38,8 @@
                   <button style="display: none;" class="submit_button" id="update_btn" type="button" onclick="updateHandler()">
                     Update
                   </button>
+                  <br>
+                  <button type="button" class="btn btn-primary  submit_button" onclick="Logout()">Logout</button>
                 </div>    
             </div>
             <div class="col-lg-7 col-sm-12 backgraund py-5 shadow">

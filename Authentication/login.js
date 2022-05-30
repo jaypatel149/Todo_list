@@ -1,5 +1,14 @@
 console.log("Hey i am jaypatel");
 
+let uName = localStorage.getItem("Name")?localStorage.getItem("Name"):"";
+if(uName != ""){
+  setTimeout(function(){
+    window.location.href = "../todopage/todo.html";
+  },2000);
+
+};
+
+
 function pageLogin() {
     event.preventDefault()
     
@@ -12,6 +21,11 @@ function pageLogin() {
     if (usersRegard.some((e) => {
         return (e.username == userEmail || e.email == userEmail) && e.password == userPass;
     })) {
+        let currentUser = usersRegard.filter((v)=>{
+          return (v.username == userEmail || v.email == userEmail) && v.password == userPass
+        })[0];
+        localStorage.setItem("Name", currentUser.username)
+        localStorage.setItem("Email", currentUser.email)
         alert(`You Have Login Successfully`);
         localStorage.setItem(
           "user",

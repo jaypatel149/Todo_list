@@ -1,5 +1,20 @@
 console.log("I am jaypatel");
 
+let Name = localStorage.getItem("Name")
+let Email = localStorage.getItem("Email")
+let uName = localStorage.getItem("Name")? localStorage.getItem("Name"):"";
+if(uName === ""){
+  alert("you need to login first")
+  window.location.href = "../index.html"
+}
+function Logout(){
+  localStorage.removeItem("Name")
+  localStorage.removeItem("Email")
+  window.location.href = "../index.html"
+}
+
+
+
 var alldata = [];
 const Submit = (e) => {
   var a = document.getElementById("Rollno");
@@ -192,3 +207,24 @@ function updateHandler(){
   storedata();
   location.reload();
 }
+
+const startingMinutes = 10;
+let time = startingMinutes * 60;
+
+const countdownEl = document.getElementById("timeLogout");
+
+
+function updateCountDown() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  if(seconds === 0){
+    Logout()
+  }
+  countdownEl.innerHTML = `${minutes}:${seconds}`;
+  if(time === 0){
+    Logout();
+  }
+  time--;
+}
+setInterval(updateCountDown, 1000);
